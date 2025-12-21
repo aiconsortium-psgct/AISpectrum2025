@@ -2,7 +2,12 @@
 
 import React from 'react';
 import styled from 'styled-components';
-import psgVideo from '../assets/psgvideo.mp4';
+// Video removed due to large file size (141MB)
+// For production, host video on YouTube, Vimeo, or CDN
+// import psgVideo from '../assets/psgvideo.mp4';
+
+// Use a placeholder image instead
+import placeholderImage from '../assets/images-college.jpg';
 
 const VideoWrapper = styled.div`
   width: 100vw;
@@ -11,7 +16,7 @@ const VideoWrapper = styled.div`
   overflow: hidden;
 `;
 
-const Video = styled.video`
+const Image = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -33,9 +38,7 @@ const Overlay = styled.div`
 const FixedVideo = () => {
   return (
     <VideoWrapper>
-      <Video autoPlay muted loop playsInline>
-        <source src={psgVideo} type="video/mp4" />
-      </Video>
+      <Image src={placeholderImage} alt="PSG College" />
       <Overlay />
     </VideoWrapper>
   );

@@ -3,8 +3,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-// Google Drive hosted video
-const VIDEO_URL = "https://drive.google.com/uc?export=download&id=1SHZeOkhhXs6zA85UTtuZIuoJN3FD6NP9";
+// Google Drive video ID
+const VIDEO_ID = "1SHZeOkhhXs6zA85UTtuZIuoJN3FD6NP9";
 
 const VideoWrapper = styled.div`
   width: 100vw;
@@ -13,13 +13,14 @@ const VideoWrapper = styled.div`
   overflow: hidden;
 `;
 
-const Video = styled.video`
+const VideoIframe = styled.iframe`
   width: 100%;
   height: 100%;
-  object-fit: cover;
   position: absolute;
   top: 0;
   left: 0;
+  border: none;
+  pointer-events: none;
 `;
 
 const Overlay = styled.div`
@@ -35,10 +36,11 @@ const Overlay = styled.div`
 const FixedVideo = () => {
   return (
     <VideoWrapper>
-      <Video autoPlay muted loop playsInline>
-        <source src={VIDEO_URL} type="video/mp4" />
-        Your browser does not support the video tag.
-      </Video>
+      <VideoIframe
+        src={`https://drive.google.com/file/d/${VIDEO_ID}/preview`}
+        allow="autoplay"
+        allowFullScreen
+      />
       <Overlay />
     </VideoWrapper>
   );

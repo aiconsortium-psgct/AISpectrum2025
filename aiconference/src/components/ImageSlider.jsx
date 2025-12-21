@@ -2,7 +2,9 @@
 
 import React from 'react';
 import styled from 'styled-components';
-import psgVideo from '../assets/psgvideo.mp4';
+
+// Google Drive hosted video
+const VIDEO_URL = "https://drive.google.com/uc?export=download&id=1SHZeOkhhXs6zA85UTtuZIuoJN3FD6NP9";
 
 const VideoWrapper = styled.div`
   width: 100vw;
@@ -34,7 +36,7 @@ const FixedVideo = () => {
   return (
     <VideoWrapper>
       <Video autoPlay muted loop playsInline>
-        <source src={psgVideo} type="video/mp4" />
+        <source src={VIDEO_URL} type="video/mp4" />
         Your browser does not support the video tag.
       </Video>
       <Overlay />

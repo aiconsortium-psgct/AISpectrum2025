@@ -1,5 +1,5 @@
 {
-  "buildCommand": "cd aiconference && git lfs pull && npm install --legacy-peer-deps && npm run build",
+  "buildCommand": "cd aiconference && npm install --legacy-peer-deps && npm run build",
   "outputDirectory": "aiconference/dist",
   "installCommand": "cd aiconference && npm install --legacy-peer-deps",
   "framework": null,

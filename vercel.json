@@ -5,6 +5,9 @@
   "framework": null,
   "cleanUrls": true,
   "trailingSlash": false,
+  "env": {
+    "ENABLE_GIT_LFS": "1"
+  },
   "rewrites": [
     {
       "source": "/(.*)",

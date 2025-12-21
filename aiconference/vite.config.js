@@ -5,5 +5,13 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   base: '/', 
   plugins: [react()],
-  assetsInclude: ['**/*.JPG'], // Add this line to include JPG files with uppercase extension
+  assetsInclude: ['**/*.JPG', '**/*.JPEG', '**/*.PNG', '**/*.jpg', '**/*.jpeg', '**/*.png', '**/*.gif', '**/*.svg', '**/*.webp'],
+  build: {
+    assetsInlineLimit: 0, // Don't inline any assets
+    rollupOptions: {
+      output: {
+        assetFileNames: 'assets/[name]-[hash][extname]'
+      }
+    }
+  }
 })

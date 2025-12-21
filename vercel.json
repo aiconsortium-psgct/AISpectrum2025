@@ -1,0 +1,12 @@
+{
+  "buildCommand": "cd aiconference && npm install && npm run build",
+  "outputDirectory": "aiconference/dist",
+  "installCommand": "cd aiconference && npm install",
+  "framework": null,
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}

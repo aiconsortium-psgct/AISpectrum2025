@@ -6,7 +6,7 @@ export default defineConfig({
   server: {
     port: 4731
   },
-  base: '/', 
+  base: '/aispectrum/', 
   plugins: [react()],
   assetsInclude: ['**/*.JPG', '**/*.JPEG', '**/*.PNG', '**/*.jpg', '**/*.jpeg', '**/*.png', '**/*.gif', '**/*.svg', '**/*.webp'],
   build: {

@@ -82,6 +82,34 @@ const ScopeText = styled.p`
   }
 `;
 
+const WatchVideosContainer = styled.div`
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+  align-items: center;
+`;
+
+const WatchVideoButton = styled.a`
+  display: inline-block;
+  background: #0d58a9;
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(13, 88, 169, 0.2);
+
+  &:hover {
+    background: #D9A353;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(217, 163, 83, 0.4);
+  }
+`;
+
 const SeeMore = ({ children }) => {
   const [showMore, setShowMore] = useState(false);
 
@@ -396,6 +424,23 @@ const About = () => {
                 The growth of Artificial Intelligence must be guided by strong ethical principles and Responsible AI, ensuring that its development promotes fairness, transparency, and societal well-being.
                 The AI Consortium at PSG College of Technology, inspired by the vision of EPIQ AI – Empowering Ethics, Progress, Innovation & Quality in AI, serves as a dynamic platform for fostering AI research, innovation, and industry collaboration.
               </p>
+
+              <WatchVideosContainer>
+                <WatchVideoButton
+                  href="https://youtu.be/Hgo2aKBYkzE?si=X53Iuf9aNyDtNHJe"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  AI Spectrum Inauguration
+                </WatchVideoButton>
+                <WatchVideoButton
+                  href="https://youtu.be/bvI3svb8NLc?si=b6IgoYLsB8pZjAun"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  About AI Spectrum
+                </WatchVideoButton>
+              </WatchVideosContainer>
 
               <div>
                 <h3 style={{ 

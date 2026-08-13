@@ -95,7 +95,7 @@ const SpeakerCard = styled.div`
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
-  height: 400px;
+  min-height: 420px;
   display: flex;
   flex-direction: column;
 
@@ -186,22 +186,58 @@ const SpeakerDesignation = styled.div`
 `;
 
 const SpeakerLink = styled.a`
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background: #D9A353;
   color: white;
   text-decoration: none;
-  padding: 10px 25px;
+  padding: 8px 16px;
   border-radius: 25px;
   font-weight: 500;
-  font-size: 0.95rem;
+  font-size: 0.85rem;
+  line-height: 1.2;
   transition: all 0.3s ease;
   text-align: center;
-  margin-top: auto;
+  box-sizing: border-box;
+  border: 2px solid transparent;
 
   &:hover {
     background: #c08a3f;
     transform: translateY(-2px);
   }
+`;
+
+const WatchSpeechButton = styled(SpeakerLink)`
+  background: ${colors.blue};
+  border-color: transparent;
+
+  &:hover {
+    background: #0a4687;
+    transform: translateY(-2px);
+  }
+`;
+
+const WatchFirechatButton = styled(SpeakerLink)`
+  background: transparent;
+  color: ${colors.blue};
+  border-color: ${colors.blue};
+  white-space: normal;
+
+  &:hover {
+    background: ${colors.blue};
+    color: white;
+    transform: translateY(-2px);
+  }
+`;
+
+const ButtonContainer = styled.div`
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: auto;
 `;
 
 const SocialLinks = styled.div`
@@ -226,6 +262,7 @@ const SocialLink = styled.a`
     designation: 'President, Patrick J McGovern Foundation',
       iconUrl:vilas,
       link: 'https://www.linkedin.com/in/vilasdhar/',
+      videoUrl: '',
     social: {
       linkedin: 'https://www.linkedin.com/in/vilasdhar/',
       twitter: '#',
@@ -237,6 +274,7 @@ const SocialLink = styled.a`
     designation: 'Honorary Professor, Department of CSA, IISC Bangalore',
       iconUrl: yadatiImage,
       link: 'https://gtl.csa.iisc.ac.in/hari',
+      videoUrl: 'https://youtu.be/CvuTyB3BXrU?si=8KYfvVdtnYHug7Tz',
     social: {
       linkedin: 'https://www.linkedin.com/in/yadati-narahari-0b0b0b0b/',
       twitter: '#',
@@ -248,6 +286,7 @@ const SocialLink = styled.a`
     designation: 'Founder, Infinite Sum Modelling<br/>Honorary Non Resident Fellow - NITI Aayog <br/>Govt of India',
       iconUrl:badrinarayanan,
       link: 'https://www.linkedin.com/in/badrinarayanang/',
+      videoUrl: 'https://youtu.be/pjrYZPGf4k0?si=d3TRytJzEs6lEoDS',
     social: {
       linkedin: 'https://www.linkedin.com/in/badrinarayanang/',
       twitter: '#',
@@ -259,6 +298,7 @@ const SocialLink = styled.a`
     designation: 'Co-Founder - Haiva.ai, USA',
       iconUrl:saladin,
       link: 'https://www.linkedin.com/in/saldin-samuel-b68b03b/',
+      videoUrl: '',
     social: {
       linkedin: 'https://www.linkedin.com/in/saldin-samuel-b68b03b/',
       twitter: '#',
@@ -270,6 +310,7 @@ const SocialLink = styled.a`
     designation: 'Co-Founder & COO - Haiva.ai, USA',
       iconUrl:aruna,
       link: 'https://www.linkedin.com/in/aruna-jayaraman-aj-0067058/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
+      videoUrl: 'https://youtu.be/GXR7mUn4P1w?si=RANSoSDg9x663-sU',
     social: {
       linkedin: 'https://www.linkedin.com/in/aruna-jayaraman-aj-0067058/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
       twitter: '#',
@@ -281,6 +322,7 @@ const SocialLink = styled.a`
     designation: 'Principal Group Eng. Manager, Microsoft India',
     iconUrl: mukundImage,
     link: 'https://www.linkedin.com/in/mukundbhoovaraghavan/',
+    videoUrl: 'https://youtu.be/VHoIhAPD4gI?si=lRpYm5YyWU5KezyL',
     social: {
       linkedin: 'https://www.linkedin.com/in/mukundbhoovaraghavan/',
       twitter: '#',
@@ -292,6 +334,7 @@ const SocialLink = styled.a`
     designation: 'Co-Founder & CTO - Arcana , USA',
       iconUrl:sooriyan,
       link: 'https://www.linkedin.com/in/sivavisakan/',
+      videoUrl: '',
     social: {
       linkedin: 'https://www.linkedin.com/in/sivavisakan/',
       twitter: '#',
@@ -303,6 +346,7 @@ const SocialLink = styled.a`
     designation: 'Global Director - Office of Responsible AI & Governance , HCL Technologies Ltd',
       iconUrl:varun_hcl,
       link: 'https://www.linkedin.com/in/varunkharbanda/',
+      videoUrl: 'https://youtu.be/INVtRsvNm4I?si=0uaE5h_pBdeXrwaO',
     social: {
       linkedin: 'https://www.linkedin.com/in/varunkharbanda/',
       twitter: '#',
@@ -314,6 +358,7 @@ const SocialLink = styled.a`
     designation: 'Director of Software Engineering , Cisco Bangalore',
       iconUrl:ananthakrishnan,
       link: 'https://www.linkedin.com/in/ananthakrishnan-r-2980b74/?originalSubdomain=in',
+      videoUrl: '',
     social: {
       linkedin: 'https://www.linkedin.com/in/ananthakrishnan-r-2980b74/?originalSubdomain=in',
       twitter: '#',
@@ -325,6 +370,7 @@ const SocialLink = styled.a`
     designation: 'AI Advisor, Marax AI & Faculty, IIIT Lucknow ',
       iconUrl: srinivasImage,
       link: 'https://iiitl.ac.in/index.php/personnel/dr-srinivas-padmanabhuni/',
+      videoUrl: 'https://youtu.be/tH60EQQBMZQ?si=3NIIWF03anczmN6Z',
     social: {
       linkedin: 'https://www.linkedin.com/in/srinivas-padmanabhuni/',
       twitter: '#',
@@ -336,6 +382,7 @@ const SocialLink = styled.a`
     designation: 'Software Engineering, CTO Organization,<br/> HCL Technologies Ltd',
       iconUrl: dakshin,
       link: 'https://www.linkedin.com/in/cdaks/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
+      videoUrl: '',
     social: {
       linkedin: 'https://www.linkedin.com/in/cdaks/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
       twitter: '#',
@@ -347,6 +394,7 @@ const SocialLink = styled.a`
     designation: 'Vice president of Technology ,<br/>Bosch Global Software Technologies',
       iconUrl: mohanbv,
       link: 'https://www.linkedin.com/in/mohanbv?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
+      videoUrl: '',
     social: {
       linkedin: 'https://www.linkedin.com/in/cdaks/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
       twitter: '#',
@@ -358,19 +406,9 @@ const SocialLink = styled.a`
     designation: 'Quantum Lead, AWS India',
       iconUrl: anjaniImage,
     link: 'https://www.linkedin.com/in/dr-anjani-priyadarsini/',
+    videoUrl: 'https://youtu.be/xCh3ct3nB6k?si=FWqiyadkJufe6Has',
     social: {
       linkedin: 'https://www.linkedin.com/in/dr-anjani-priyadarsini/',
-      twitter: '#',
-      website: '#'
-    }
-  },
-  {
-      name: 'Dr Shantanu Pal',
-    designation: 'Lecturer, Emerging Technology Blockchain <br/> Deakin University',
-      iconUrl: pal,
-    link: 'https://experts.deakin.edu.au/60615-shantanu-pal',
-    social: {
-      linkedin: 'https://experts.deakin.edu.au/60615-shantanu-pal',
       twitter: '#',
       website: '#'
     }
@@ -380,6 +418,7 @@ const SocialLink = styled.a`
     designation: 'Director - PSG AI Consortium & Professor - CSE <br/>PSG College of Technology',
       iconUrl: grk_mam,
     link: 'https://www.linkedin.com/in/g-r-karpagam-68ab8353/',
+    videoUrl: '',
     social: {
       linkedin: 'https://www.linkedin.com/in/g-r-karpagam-68ab8353/',
       twitter: '#',
@@ -391,6 +430,7 @@ const SocialLink = styled.a`
     designation: 'Professor & Head, Dept. of Applied Mathematics and Scientific Computing , IIT Roorkee',
       iconUrl: milliImage,
       link: 'https://www.iitr.ac.in/~ASE/millifpt',
+      videoUrl: '',
     social: {
       linkedin: 'https://www.linkedin.com/in/millie-pant-0b0b0b0b/',
       twitter: '#',
@@ -402,6 +442,7 @@ const SocialLink = styled.a`
     designation: 'Professor of ML & AI, University of Surrey',
       iconUrl: ferranteImage,
       link: 'https://www.surrey.ac.uk/people/ferrante-neri',
+      videoUrl: '',
     social: {
       linkedin: 'https://www.linkedin.com/in/ferrante-neri-0b0b0b0b/',
       twitter: '#',
@@ -413,6 +454,7 @@ const SocialLink = styled.a`
     designation: 'Professor of Data Science, University of Newcastle',
       iconUrl: pabloImage,
       link: 'https://www.newcastle.edu.au/profile/pablo-moscato',
+      videoUrl: '',
     social: {
       linkedin: 'https://www.linkedin.com/in/pablo-moscato-0b0b0b0b/',
       twitter: '#',
@@ -424,6 +466,7 @@ const SocialLink = styled.a`
     designation: 'Assistant Professor, IIIT Hyderabad',
       iconUrl: karthikVaidhyanathanImage,
       link: 'https://karthikvaidhyanathan.com/',
+      videoUrl: 'https://youtu.be/x_7X4-ki5sA?si=MO51jjpen-HoEHB2',
     social: {
       linkedin: 'https://www.linkedin.com/in/karthik-vaidhyanathan-0b0b0b0b/',
       twitter: '#',
@@ -435,6 +478,7 @@ const SocialLink = styled.a`
     designation: 'VP, Engineering, Salesforce India',
       iconUrl: srikanthImage,
     link: 'https://www.linkedin.com/in/srikanth-subramanian/',
+    videoUrl: 'https://youtu.be/A-CqEni7E4U?si=TN5XJdKqZA7vZDsi',
     social: {
       linkedin: 'https://www.linkedin.com/in/srikanth-subramanian/',
       twitter: '#',
@@ -446,6 +490,7 @@ const SocialLink = styled.a`
     designation: 'Principal Scientist - CSIR-CMERI',
     iconUrl: drsrinivasan,
     link: 'https://www.cmeri.res.in/user-details/1360',
+    videoUrl: 'https://youtu.be/oIm3K1A6mBE?si=ousmeazWtAsl0XDO',
     social: {
       linkedin: '#',
       twitter: '#',
@@ -457,6 +502,7 @@ const SocialLink = styled.a`
     designation: 'Founder and CEO, Vistara LLC, USA',
     iconUrl: vidhya,
     link:'https://www.linkedin.com/in/vidhya-subramanian-bb7478/',
+    videoUrl: 'https://youtu.be/aLQVk6K1wEw?si=L88yT3SEa1_mnxsK',
     social: {
       linkedin: 'https://www.linkedin.com/in/vidhya-subramanian-bb7478/',
       twitter: '#',
@@ -468,6 +514,7 @@ const SocialLink = styled.a`
     designation: 'Founder and CEO, Dossier.nexus',
     iconUrl: kapil,
     link:'https://www.linkedin.com/in/kapilanjan?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app',
+    videoUrl: 'https://youtu.be/EdMQMh2Cb6g?si=5eNSbpTkCsWGlI-T',
     social: {
       linkedin: 'https://www.linkedin.com/in/vidhya-subramanian-bb7478/',
       twitter: '#',
@@ -479,6 +526,7 @@ const SocialLink = styled.a`
   designation: 'Senior Software Engineer , Microsoft Corporation USA',
   iconUrl: praveenem,
   link:'https://www.linkedin.com/in/praveenerodemurugesan?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
+  videoUrl: '',
   social: {
     linkedin: '#',
       twitter: '#',
@@ -490,6 +538,7 @@ const SocialLink = styled.a`
   designation: 'Principal Software Engineer,DCN-Switching-India',
   iconUrl: shankar,
   link:'https://linkedin.com/in/shankar-gopalakrishnan-089a772',
+  videoUrl: 'https://youtu.be/TPvf-C1dy6M?si=c89WKi1_kgvio9Sj',
   social: {
     linkedin: '#',
       twitter: '#',
@@ -501,6 +550,7 @@ const SocialLink = styled.a`
     designation: 'Director / Software Architect <br/> Otka , USA',
       iconUrl:asadin,
       link: 'https://www.linkedin.com/in/asadh-sheriff-59755419/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
+      videoUrl: '',
     social: {
       linkedin: 'https://www.linkedin.com/in/asadh-sheriff-59755419/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
       twitter: '#',
@@ -512,6 +562,7 @@ const SocialLink = styled.a`
     designation: 'Software Development Engineer , Amazon',
       iconUrl:mahadevan,
       link: '',
+      videoUrl: '',
     social: {
       linkedin: '',
       twitter: '#',
@@ -523,6 +574,7 @@ const SocialLink = styled.a`
     designation: ' Office of Responsible AI & Governance, <br/>HCL Technologies Ltd',
       iconUrl:rajat,
       link: 'https://www.linkedin.com/in/rajat-misra-pmp%C2%AE-csm%C2%AE-cspo%C2%AE-34a42914b/',
+      videoUrl: '',
     social: {
       linkedin: 'https://www.linkedin.com/in/rajat-misra-pmp%C2%AE-csm%C2%AE-cspo%C2%AE-34a42914b/',
       twitter: '#',
@@ -534,21 +586,11 @@ const SocialLink = styled.a`
     designation: 'Responsible AI Solution Architect, <br/>HCL Technologies Ltd',
       iconUrl:puthanial,
       link: 'https://www.linkedin.com/in/puthanial-mariappan-425134268/',
+      videoUrl: '',
     social: {
       linkedin: 'https://www.linkedin.com/in/puthanial-mariappan-425134268/',
       twitter: '#',
       website: 'https://www.linkedin.com/in/puthanial-mariappan-425134268/'
-    }
-    },
-    {
-    name: 'Ms Dhana Srinithi Srinivasan',
-    designation: 'Data Scientist , Microsoft',
-      iconUrl:srinithi,
-      link: 'https://www.linkedin.com/in/dhana-srinithi-srinivasan/',
-    social: {
-      linkedin: 'https://www.linkedin.com/in/dhana-srinithi-srinivasan/',
-      twitter: '#',
-      website: 'https://www.linkedin.com/in/dhana-srinithi-srinivasan/'
     }
     },
 ];
@@ -559,6 +601,7 @@ const healthcareExperts = [
     designation: 'Director - PSG Hospitals',
     iconUrl: JSB,
     link: 'https://www.linkedin.com/in/drbhuvaneswaran-js-2822ab48/?originalSubdomain=in',
+    videoUrl: '',
     social: {
       linkedin: 'https://www.linkedin.com/in/drbhuvaneswaran-js-2822ab48/?originalSubdomain=in',
       twitter: '#',
@@ -570,6 +613,7 @@ const healthcareExperts = [
     designation: 'Professor & Head, PSG IMSR, India',
     iconUrl: sudhaImage,
     link: 'https://psgimsr.ac.in/old/community-medicine/dr-sudha-ramalingam/',
+    videoUrl: '',
     social: {
       linkedin: 'https://www.linkedin.com/in/sudha-ramalingam-0b0b0b0b/',
       twitter: '#',
@@ -581,6 +625,7 @@ const healthcareExperts = [
     designation: 'Head of the Department of Radiology , PSG IMSR',
     iconUrl: devanand,
     link: 'https://psgimsr.ac.in/departments/clinical-departments/radiology/dr-b-devanand/',
+    videoUrl: '',
     social: {
       linkedin: 'https://psgimsr.ac.in/departments/clinical-departments/radiology/dr-b-devanand/',
       twitter: '#',
@@ -592,6 +637,7 @@ const healthcareExperts = [
     designation: 'Professor of  Surgical Oncology , PSG IMSR',
     iconUrl: rajkumar,
     link: 'https://www.linkedin.com/in/rajkumar-k-seenivasagam/',
+    videoUrl: '',
     social: {
       linkedin: 'https://www.linkedin.com/in/rajkumar-k-seenivasagam/',
       twitter: '#',
@@ -603,6 +649,7 @@ const healthcareExperts = [
     designation: 'Department of Respiratory Medicine , PSG IMSR',
     iconUrl: varun,
     link: 'https://psgimsr.ac.in/departments/clinical-departments/respiratory-medicine/dr-varun-m-d/',
+    videoUrl: '',
     social: {
       linkedin: 'https://psgimsr.ac.in/departments/clinical-departments/respiratory-medicine/dr-varun-m-d/',
       twitter: '#',
@@ -610,6 +657,17 @@ const healthcareExperts = [
     }
   }
 ];
+
+const scrollToSection = (id) => {
+  const element = document.getElementById(id);
+  if (element) {
+    const offsetTop = element.getBoundingClientRect().top + window.scrollY;
+    window.scrollTo({
+      top: offsetTop - 70,
+      behavior: 'smooth',
+    });
+  }
+};
 
 const Speaker = () => {
   return (
@@ -629,9 +687,27 @@ const Speaker = () => {
               <SpeakerDesignation dangerouslySetInnerHTML={{ __html: speaker.designation }} />
                 </div>
                 <div>
-              <SpeakerLink href={speaker.link} target="_blank" rel="noopener noreferrer">
-                View Profile
-              </SpeakerLink>
+                  <ButtonContainer>
+                    <SpeakerLink href={speaker.link} target="_blank" rel="noopener noreferrer">
+                      View Profile
+                    </SpeakerLink>
+                    {speaker.videoUrl ? (
+                      <WatchSpeechButton onClick={() => window.open(speaker.videoUrl, '_blank')}>
+                        Watch Speech
+                      </WatchSpeechButton>
+                    ) : (
+                      <WatchFirechatButton
+                        as="a"
+                        href="#firechats"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          scrollToSection('firechats');
+                        }}
+                      >
+                        Watch Firechats & Panel Discussion
+                      </WatchFirechatButton>
+                    )}
+                  </ButtonContainer>
                   <SocialLinks>
                     <SocialLink href={speaker.social.linkedin} target="_blank" rel="noopener noreferrer">
                       <i className="fab fa-linkedin"></i>
@@ -665,9 +741,11 @@ const Speaker = () => {
               <SpeakerDesignation dangerouslySetInnerHTML={{ __html: expert.designation }} />
                 </div>
                 <div>
-              <SpeakerLink href={expert.link} target="_blank" rel="noopener noreferrer">
-                View Profile
-              </SpeakerLink>
+                  <ButtonContainer>
+                    <SpeakerLink href={expert.link} target="_blank" rel="noopener noreferrer">
+                      View Profile
+                    </SpeakerLink>
+                  </ButtonContainer>
                   <SocialLinks>
                     <SocialLink href={expert.social.linkedin} target="_blank" rel="noopener noreferrer">
                       <i className="fab fa-linkedin"></i>

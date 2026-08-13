@@ -166,10 +166,34 @@ const ClosingRemarks = styled.div`
   }
 `;
 
+const WatchRecordingButton = styled.button`
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+  padding: 12px 24px;
+  background: #D9A353;
+  color: ${colors.blue};
+  border: none;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(217, 163, 83, 0.3);
+  transition: all 0.3s ease;
+  text-align: center;
+
+  &:hover {
+    background: #c08a3f;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(217, 163, 83, 0.4);
+  }
+`;
+
 const Firechat = () => {
   const firechats = [
     {
       number: 'FIRECHAT',
+      recordingUrl: 'https://youtu.be/9B0eB0uV7zU?si=4E3r3Abu6GbEuJzj',
       description: 'An informal, story-driven conversation between a moderator and a single guest. It focuses on personal insights, experiences creating an intimate and reflective atmosphere.',
       mainTheme: 'AI - Hype, Hope & Human Impact',
       chats: [
@@ -190,6 +214,7 @@ const Firechat = () => {
     },
     {
       number: 'PANEL DISCUSSION',
+      recordingUrl: 'https://youtu.be/t36nlP5bsng?si=XofRHC2LM4s-GqSi',
       description: 'Brings together multiple experts to share diverse viewpoints on a topic. It is more structured, debate-oriented, and offers a broader understanding through different perspectives and audience interaction.',
       mainTheme: 'Healing with Algorithms: Beyond Stethoscopes: How AI is Redefining Modern Healthcare',
       chats: [
@@ -234,6 +259,12 @@ const Firechat = () => {
             <ClosingRemarks>
               <strong>Closing Remarks:</strong> {firechat.closingRemarks}
             </ClosingRemarks>
+
+            {firechat.recordingUrl && (
+              <WatchRecordingButton onClick={() => window.open(firechat.recordingUrl, '_blank')}>
+                Watch Recording
+              </WatchRecordingButton>
+            )}
           </FirechatCard>
         ))}
       </FirechatGrid>

@@ -106,6 +106,14 @@ function App() {
   const [activeSection, setActiveSection] = useState('home');
   const [showPopup, setShowPopup] = useState(true);
 
+  // Auto-close invitation popup after 15 seconds
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowPopup(false);
+    }, 15000);
+    return () => clearTimeout(timer);
+  }, []);
+
   // Export showTemp state and setter for Navbar to use
   window.appState = {
     showTemp,

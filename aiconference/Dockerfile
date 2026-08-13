@@ -8,6 +8,6 @@ RUN npm install --legacy-peer-deps
 
 RUN npm run build
 
-EXPOSE 4173
+EXPOSE 4731
 
 CMD ["npm", "run", "preview"]
